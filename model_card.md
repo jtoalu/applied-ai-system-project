@@ -82,14 +82,17 @@ Weaknesses might include overfitting to the training data or picking up spurious
 
 ### Automated Tests
 
-================================================================== Automated test summary ==================================================================
-Test Input                       | Evaluation Criteria                           | Result
----------------------------------+-----------------------------------------------+-------
-Three labeled posts              | Calculates accuracy and prints predictions    | PASSED
-Empty evaluation dataset         | Returns 0.0 and handles empty data gracefully | PASSED
-Two sample posts                 | Predicts and prints each post's mood          | PASSED
-Padded sentence followed by QUIT | Strips input, predicts mood, and exits        | PASSED
-Whitespace-only input            | Exits gracefully without making a prediction  | PASSED
+================================================================== 
+Automated test summary 
+================================================================== 
+
+| Test Input | Evaluation Criteria | Result |
+| ------------- | ------------- | --------- |
+| Three labeled posts | Calculates accuracy and prints predictions | PASSED |
+| Empty evaluation dataset | Returns 0.0 and handles empty data gracefully | PASSED |
+| Two sample posts | Predicts and prints each post's mood | PASSED |
+| Padded sentence followed by QUIT | Strips input, predicts mood, and exits | PASSED |
+| Whitespace-only input | Exits gracefully without making a prediction | PASSED |
 
 5 passed in 0.02s
 
