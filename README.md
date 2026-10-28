@@ -63,7 +63,7 @@ Here are examples of the Mood Machine’s input and output. Predictions can vary
 
 The examples marked illustrative show typical expected results; run the program to see its current predictions.
 
-![Interactive Mood Machine (rule based)](images/Screenshot%20 2026-10-27%20202731.png)
+![Interactive Mood Machine (rule based)](images/Screenshot%202026-10-27%20202731.png)
 
 ---
 
