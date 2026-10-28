@@ -82,9 +82,7 @@ Weaknesses might include overfitting to the training data or picking up spurious
 
 ### Automated Tests
 
-================================================================== 
-Automated test summary 
-================================================================== 
+Automated Test Summary 
 
 | Test Input | Evaluation Criteria | Result |
 | ------------- | ------------- | --------- |
@@ -94,7 +92,7 @@ Automated test summary
 | Padded sentence followed by QUIT | Strips input, predicts mood, and exits | PASSED |
 | Whitespace-only input | Exits gracefully without making a prediction | PASSED |
 
-5 passed in 0.02s
+- 5 passed in 0.02s
 
 **How you evaluated the model:**  
 Both versions can be evaluated on the labeled posts in `dataset.py`.  
