@@ -1,0 +1,16 @@
+flowchart TD
+    D["Labeled examples<br/>SAMPLE_POSTS + TRUE_LABELS"] --> V["CountVectorizer<br/>text → bag-of-words"]
+    V --> LR["Logistic Regression<br/>train model"]
+    D --> V
+    V --> EV["Evaluator<br/>predict labels; compare with true labels"]
+    LR --> EV
+    EV --> MET["Print per-example results<br/>and training-set accuracy"]
+    MET --> H["Human reviews results"]
+
+    U["User types a sentence"] --> P["Vectorizer transforms input"]
+    P --> C["Trained classifier predicts mood"]
+    LR --> C
+    C --> O["Display predicted mood label"]
+    O --> H
+
+    H -. "Optional comparison" .-> RB["Rule-based model<br/>(run main.py separately)"]
