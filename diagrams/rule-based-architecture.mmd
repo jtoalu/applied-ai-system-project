@@ -1,0 +1,19 @@
+flowchart TD
+    POSTS["SAMPLE_POSTS"] --> EVAL["Rule-based evaluator"]
+    LABELS["TRUE_LABELS"] --> EVAL
+    EVAL -->|"text"| ANALYZER["MoodAnalyzer<br/>predict_label()"]
+    ANALYZER -->|"predicted label"| EVAL
+    EVAL --> CHECK["Compare prediction<br/>with true label"]
+    CHECK --> ACC["Print per-example results<br/>and accuracy"]
+    ACC --> HUMAN["Human reviews performance"]
+
+    POSTS --> BATCH["Batch demo"]
+    BATCH --> ANALYZER
+    ANALYZER --> BATCH_OUT["Print predictions"]
+
+    USER["User enters a sentence"] --> INTERACTIVE["Interactive loop"]
+    INTERACTIVE --> ANALYZER
+    ANALYZER --> OUTPUT["Predicted mood + explanation"]
+    OUTPUT --> USER_REVIEW["Human checks result"]
+
+    linkStyle default stroke:#00E5FF,stroke-width:5px
