@@ -1,8 +1,14 @@
-# The Mood Machine
+# The Mood Machine: Exploring How Text Classifiers Work
 
-The Mood Machine is a simple text classifier that begins with a rule based approach and can optionally be extended with a small machine learning model. It tries to guess whether a short piece of text sounds **positive**, **negative**, **neutral**, or even **mixed** based on patterns in your data.
+The Mood Machine is a hands-on project for classifying short text as positive, negative, neutral, or mixed. It starts with a rule-based model and can be extended with a small machine-learning model, letting you compare how different approaches make predictions.
 
-This lab gives you hands on experience with how basic systems work, where they break, and how different modeling choices affect fairness and accuracy. You will edit code, add data, run experiments, and write a short model card reflection.
+The project matters because it helps learners see how training data and design choices shape model behavior — and why classifiers can make mistakes, especially with limited data, slang, sarcasm, or neutral phrases. By testing examples and reflecting on failures, you can better understand model accuracy, fairness, and limitations.
+
+---
+
+## Architecture Overview
+
+In main.py, the sample posts are passed to the rule-based MoodAnalyzer for evaluation and a batch demo. During evaluation, its predictions are compared with TRUE_LABELS, and the results and accuracy are printed for human review. In interactive mode, a user enters a sentence and receives a predicted mood and explanation. The diagram shows these paths through the analyzer and where people can inspect the results.
 
 ---
 
@@ -42,6 +48,46 @@ To try the ML model later, run:
 ```bash
 python ml_experiments.py
 ```
+
+---
+
+## Sample Interactions
+
+Here are examples of the Mood Machine’s input and output. Predictions can vary depending on whether you run the rule-based model or the ML model and on the current data and rules.
+
+| Input | Example Output |
+| ------------- | ------------- |
+| “I love this sunny day!” | positive (illustrative) |
+| “I feel awful and disappointed.” | negative (illustrative)
+| “Today is Thursday” | ML model: negative (observed; a small training dataset can lead to unexpected predictions)
+
+The examples marked illustrative show typical expected results; run the program to see its current predictions.
+
+![Interactive Mood Machine (rule based)](images/Screenshot 2026-10-27 202731.png)
+
+---
+
+## Design Decisions
+
+The Mood Machine uses both a rule-based classifier and an optional small machine-learning model to make their behavior easy to compare. The rule-based approach is simple, fast, and transparent: learners can inspect and change the scoring rules. Its trade-off is that it depends on specific words and rules, so it can miss context, slang, sarcasm, or unfamiliar phrasing.
+
+The optional ML model uses bag-of-words features and logistic regression. This keeps the experiment lightweight and introduces a common text-classification approach, but it does not understand word order or meaning. With a small dataset, it can also learn misleading associations and make unexpected predictions.
+
+Batch evaluation and interactive input let learners examine predictions in different ways. The evaluation reports accuracy on the provided examples, which is useful for exploration but does not show how well the model will perform on new text. These trade-offs make the project a learning tool — not a reliable measure of a person’s actual mood.
+
+---
+
+## Testing Summary
+
+The Mood Machine ran through its batch and interactive examples and produced mood predictions. The evaluator also compared rule-based predictions with the labeled examples and reported accuracy. One notable result was that the ML model classified “Today is Thursday” as negative, even though the sentence is neutral.
+
+This showed that the model can pick up misleading word associations when trained on a small dataset. The rule-based approach is easier to inspect, but it can miss context and phrases that aren’t covered by its rules. I learned that a prediction is not necessarily a reliable judgment of someone’s mood, and that testing varied examples — and reviewing mistakes — is important.
+
+---
+
+## Reflection
+
+This project taught me that AI predictions depend on the data and rules behind them — they aren’t automatically correct or human-like. Testing unexpected results helped me see the value of questioning assumptions, investigating failures, and improving a system step by step.
 
 ---
 
