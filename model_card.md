@@ -94,6 +94,10 @@ Automated Test Summary
 
 - 5 passed in 0.02s
 
+### Reliability
+
+I was surprised that passing the automated tests didn’t necessarily mean the mood predictions were reliable. The tests confirmed that the program handled inputs and produced results, but they didn’t establish that its labels were accurate. I also noticed how easily a short or ambiguous message could be interpreted in different ways. That made me realize the model’s reliability depends heavily on the examples and labels it was given, and it may struggle with sarcasm, slang, or mixed feelings.
+
 **How you evaluated the model:**  
 Both versions can be evaluated on the labeled posts in `dataset.py`.  
 Describe what accuracy you observed.
@@ -107,6 +111,12 @@ If you used both models, show how their failures differed.
 
 ## 6. Limitations
 
+- Limited data and generalization: A small set of short posts may not represent longer messages or language outside the examples.
+- Ambiguity and context: Sarcasm, mixed feelings, subtle wording, slang, and emojis can be difficult to interpret.
+- Model-specific weaknesses: A rule-based model depends on its chosen words, scoring, and negation rules. An ML model can overfit or rely on misleading patterns in its training examples.
+- Evaluation may be misleading: The card mentions evaluating on labeled posts, but doesn’t say whether those posts are separate from training data. If they overlap, accuracy may overstate performance. The listed automated tests check program behavior, not whether mood predictions are accurate or fair.
+- Potential bias and harm: Language communities may express emotion differently, leading to uneven errors. Misreading distress could have serious consequences, and analyzing personal messages raises privacy concerns.
+
 Describe the most important limitations.  
 Examples:  
 
@@ -116,6 +126,16 @@ Examples:
 - It depends heavily on the words you chose or labeled
 
 ## 7. Ethical Considerations
+
+A mood classifier could be misused to monitor people without their consent, label them unfairly, target them with manipulative messages, or make decisions about them at work, school, or in services. It can also misread sarcasm, slang, or distress — so treating its prediction as fact could harm someone.
+
+To reduce those risks:
+- Limit its purpose: use it for experimentation or voluntary, low-stakes feedback—not diagnosis, surveillance, or decisions about individuals.
+- Be transparent and get consent: explain what text is analyzed, why, and how results are used; let people opt out.
+- Protect the data: collect as little as possible, avoid retaining identifiable messages, restrict access, and set a deletion schedule.
+- Keep a person in control: present results as uncertain estimates, not facts, and require human review before any action.
+- Test for uneven errors: evaluate on a separate test set and check performance across different language styles and communities. Don’t deploy if it performs poorly or inconsistently.
+- Plan for misuse: restrict who can use it, monitor use, and provide a way to report or challenge harmful results.
 
 Discuss any potential impacts of using mood detection in real applications.  
 Examples: 
