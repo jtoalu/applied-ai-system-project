@@ -91,6 +91,28 @@ This project taught me that AI predictions depend on the data and rules behind t
 
 ---
 
+## Stretch Features for Extra Points
+
+### Evaluation Script
+
+The evaluate.py script reports accuracy rather than confidence because the provided main.py snapshot shows a label-prediction method, but no numeric confidence score.
+
+Overall: 7/22 passed (31.8% accuracy)
+
+Accuracy by expected label:
+-  mixed: 0/4 (0.0%)
+-  negative: 2/8 (25.0%)
+-  neutral: 2/2 (100.0%)
+-  positive: 3/8 (37.5%)
+
+![screenshot of Evaluation 1](images/Screenshot%202026-10-30%20230659.png)
+
+![screenshot of Evaluation 2](images/Screenshot%202026-10-30%20230742.png)
+
+![screenshot of Evaluation 3](images/Screenshot%202026-10-30%20230808.png)
+
+---
+
 ## What You Will Do
 
 During this lab you will:
